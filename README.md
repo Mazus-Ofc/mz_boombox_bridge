@@ -7,6 +7,6 @@
 
 ## 🔗 Extensão para Celulares
 
-| Dependência                                              | Status                                                                          |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [qb-phone](https://github.com/qbcore-framework/qb-phone) | ![status](https://img.shields.io/badge/status-em%20constru%C3%A7%C3%A3o-yellow) |
+| Dependência                                              | Status           |
+| -------------------------------------------------------- | ---------------- |
+| [qb-phone](https://github.com/qbcore-framework/qb-phone) | 🚧 Em construção |
