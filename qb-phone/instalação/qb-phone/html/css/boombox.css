@@ -1,0 +1,394 @@
+/* Boombox phone app — layout mobile com tema VERDE (estilo da sua NUI) */
+.boombox-app.theme-green {
+  --bg: #0e1116;
+  --panel: #131922;
+  --panel-2: #0f172a;
+  --stroke: rgba(255, 255, 255, 0.06);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.65);
+  --muted-2: rgba(255, 255, 255, 0.55);
+  --accent: #1db954; /* verde principal */
+  --accent-2: #1ed760; /* verde claro */
+  --btn: #2a3442;
+  --btn-hover: #334256;
+  --safe-top: 42px; /* desce cabeçalho */
+  --safe-bottom: 32px; /* SOBE player - ajuste se precisar */
+}
+
+.boombox-app {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  color: var(--text);
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+  padding-top: 0 !important;
+  background: transparent;
+}
+.boombox-app * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.bbx-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  margin-top: var(--safe-top);
+}
+.bbx-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.95;
+}
+.bbx-title i {
+  margin-right: 6px;
+  color: var(--accent);
+}
+
+/* Abas em ícones */
+.bbx-tabs-icons {
+  display: flex;
+  gap: 6px;
+}
+.bbx-tab {
+  background: var(--btn);
+  border: 0;
+  color: #fff;
+  width: 32px;
+  height: 28px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1px var(--stroke);
+}
+.bbx-tab i {
+  font-size: 12px;
+}
+.bbx-tab.active {
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 6px 14px rgba(29, 185, 84, 0.25);
+}
+
+/* Conteúdo (altura calculada via JS) */
+.bbx-content {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.bbx-view {
+  height: 100%;
+}
+.bbx-view[style*="display:none"] {
+  display: none !important;
+}
+
+/* Toolbar */
+.bbx-toolbar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 6px 0;
+  flex-wrap: wrap;
+}
+.bbx-btn {
+  background: var(--btn);
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+.bbx-btn:hover {
+  background: var(--btn-hover);
+}
+
+/* Listas roláveis — scroll invisível */
+.bbx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: auto;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.bbx-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+.bbx-view::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+/* Inputs */
+#bbx-search-input,
+#bbx-pl-name,
+.bbx-url {
+  width: 100%;
+  background: #0b1016;
+  border: 1px solid var(--stroke);
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+}
+
+/* Card */
+.bbx-card {
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 10px;
+  border: 1px solid var(--stroke);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+.bbx-card.active {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+}
+.bbx-row {
+  display: flex;
+  gap: 12px;
+}
+.bbx-left {
+  min-width: 64px;
+}
+.bbx-right {
+  flex: 1;
+}
+
+.bbx-id {
+  font-weight: 700;
+  opacity: 0.95;
+}
+.bbx-status {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.bbx-badge {
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  background: #2b3442;
+  color: var(--muted);
+}
+.bbx-badge.playing {
+  background: var(--accent);
+  color: #0d151a;
+  font-weight: 700;
+}
+.bbx-pos {
+  font-size: 10px;
+  color: var(--muted-2);
+  margin-top: 4px;
+}
+
+.bbx-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bbx-buttons {
+  display: flex;
+  gap: 6px;
+}
+.bbx-buttons .bbx-btn {
+  width: 32px;
+  height: 28px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--btn);
+}
+.bbx-buttons .bbx-btn:hover {
+  background: var(--btn-hover);
+}
+.bbx-buttons .bbx-btn i {
+  font-size: 12px;
+}
+
+/* Sliders */
+.bbx-sliders {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
+.bbx-sliders input[type="range"] {
+  width: 140px;
+  accent-color: var(--accent);
+}
+
+/* Mensagens */
+.bbx-helper {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 8px 2px;
+}
+
+/* Resultados da busca */
+.bbx-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid var(--stroke);
+}
+.bbx-result img {
+  width: 64px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.bbx-meta {
+  flex: 1;
+  min-width: 0;
+}
+.bbx-title {
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bbx-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bbx-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Player fixo (usa --safe-bottom para “subir”) */
+.bbx-player {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: var(--safe-bottom);
+  height: 56px;
+  border-radius: 12px;
+  background: var(--panel-2);
+  border: 1px solid var(--stroke);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  gap: 8px;
+  z-index: 2;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+.bbx-now {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.bbx-now-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #0b1016;
+  border: 1px solid var(--stroke);
+}
+.bbx-now-meta {
+  min-width: 0;
+}
+.bbx-now-title {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+.bbx-now-sub {
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.bbx-player-center {
+  display: flex;
+  gap: 6px;
+}
+.bbx-btn-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--btn);
+  border: 0;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.bbx-btn-icon:hover {
+  background: var(--btn-hover);
+}
+
+/* Estado tocando */
+.bbx-player.is-playing .bbx-toggle {
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  color: #0f1318;
+}
+.bbx-player.is-playing .bbx-toggle:hover {
+  filter: brightness(1.03);
+}
+
+.bbx-player-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+.bbx-player-right input[type="range"] {
+  width: 100px;
+  accent-color: var(--accent);
+}
+
+/* Responsivo */
+@media (max-width: 360px) {
+  .boombox-app.theme-green {
+    --safe-top: 26px;
+    --safe-bottom: 36px;
+  }
+  .bbx-now-title,
+  .bbx-now-sub {
+    max-width: 120px;
+  }
+  .bbx-player-right input[type="range"] {
+    width: 80px;
+  }
+}
+
+/* Normaliza */
+.boombox-app button,
+.boombox-app input {
+  font: inherit;
+}
